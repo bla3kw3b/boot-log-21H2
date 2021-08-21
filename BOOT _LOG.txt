@@ -43,7 +43,8 @@ Task manager is carefully checked after each log... no processes were found
 The first log occurs just after a fresh updated build install
 
 
-1: ```
+1: 
+ ```
 Audio devices opened successfully
 Supernova ready
 Warning: cannot raise thread priority
@@ -53,7 +54,8 @@ Warning: cannot set thread affinity of main audio thread
 
 Successful boot
 
-2: ```
+2: 
+```
 -> localhost
 Booting server 'localhost' on address 127.0.0.1:57110.
 Supernova booting
@@ -98,13 +100,14 @@ For all of the following boot attempts:
 - networking is turned off via hardware killswitch
 
 
-3:```
+3: 
+```
 Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
 ```
 Failed boot attempt -> Task manager shows no servers -> no attempt made to kill servers
 
-4:
+4: 
 ```
 Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
@@ -117,7 +120,8 @@ Networking will remain on for all following boot attempts...
 
 5: identical to log #2... successful boot
 
-6: ```
+6: 
+```
 -> localhost
 Booting server 'localhost' on address 127.0.0.1:57110.
 server 'localhost' already booting
@@ -132,72 +136,64 @@ Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
 ```
 Server was inadvertently booted in process (boot file was evaluated twice ctrl+E)
-...failing immeditaley, then -> Server.killAll (ide) -> boot attempt ctrl + e ->
-fail -> Server.killAll (ide) -> fail 
+...failing immeditaley, then -> Server.killAll (ide) -> boot attempt ctrl + e -> fail -> Server.killAll (ide) -> fail 
 
 Networking is verified to be on... this log highlights a separate but still relevant issue
 
 Battery is almost dead... now carefully checking task manager once more, before performing
 complete shutdown.
 
-7:```
+7:
+ ```
 -> localhost
 Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
 ```
-Server.killAll (ide) ->
+// Server.killAll (ide) ->
 ```
 -> localhost
 Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
 ```
-Server.killAll (code) ->
+// Server.killAll (code) ->
 ```
 -> Server
 -> localhost
 Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
 ```
-thisProcess.platform.killAll("supernova.exe") ->
+// thisProcess.platform.killAll("supernova.exe") ->
 
 ...cannot get supernova to boot with local, trying supernova with internal 
 
-8:```
+8: 
+```
 /*
-This boot log was lost due to unexpected shutdown. 
+Now returning to this boot log, data for this log was lost due to unexpected shutdown. 
 
-...now I remember, the initial attempt to boot supernova with the internal 
-
-server after many failed attempts with the local server took a record breaking 55-65 
-
-seconds to boot... the internal server typicallys to boots in 3-8 seconds
+...as I clearly recall, the initial attempt to boot supernova with the internal server... after many failed attempts with the local server, took a record breaking 55-65 seconds to boot... the internal server typically boots in 3-8 seconds
 */
 ```
 
-9:```
+9:
+```
 /*
-This boot log was also lost, I can clearly remember testing scsynth with the local server,
-
-with an exit code 1... 100% confident
+This boot log was also lost... though I clearly recall testing scsynth with the local server... exit code 1
 */
 ```
 
-10: ```
+10: 
+```
 /*
-Now returning to boot log after 24 hours... fully charged after unexpected shutdown.
+24 hours have passed since shutdown... 2 missing logs were added, networking is on, notepad is running this log alongside scide.
 
-Boot log is written in notepad, not the ide... the former has been in the background for the last 10
-
--15 minutes, with no other processes being run. Networking has been on the whole time...
-
-...now initiating final boot call using supernova, and the default (local) server
-
+Final boot using supernova & local server as default:
 */
 compiling class library...
 	Found 853 primitives.
-	Compiling directory 'C:\Users\ssh\SuperCollider\SCClassLibrary'
+	Compiling directory 'C:\Users\bla3kw3b\SuperCollider\SCClassLibrary'
 	Compiling directory 'C:\ProgramData\SuperCollider\Extensions'
-	Compiling directory 'C:\Users\ssh\AppData\Local\SuperCollider\Extensions'
+	Compiling directory 'C:\Users\bla3kw3b\AppData\Local\SuperCollider\Extensions'
 	numentries = 835291 / 12386250 = 0.067
 	5505 method selectors, 2250 classes
 	method table size 13404192 bytes, big table size 99090000
@@ -234,3 +230,4 @@ Server 'localhost' exited with exit code 1.
 Booting server 'localhost' on address 127.0.0.1:57110.
 Server 'localhost' exited with exit code 1.
 ```
+https://github.com/bla3kw3b/boot-log-21H2/
