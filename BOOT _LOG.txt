@@ -116,7 +116,7 @@ Networking is still off, switching networking back to on before restart
 
 Networking will remain on for all following boot attempts... 
 
-5: identical to log #2... successful boot
+5: identical to log # 2... Successful boot
 
 6: 
 ```
@@ -167,25 +167,31 @@ Server 'localhost' exited with exit code 1.
 8: 
 ```
 /*
-Now returning to this boot log, data for this log was lost due to unexpected shutdown. 
+Now returning to this boot log... data for this log was lost due to unexpected shutdown. 
 
-...as I clearly recall, the initial attempt to boot supernova with the internal server... after many failed attempts with the local server, took a record breaking 55-65 seconds to boot... the internal server typically boots in 3-8 seconds
+...as I clearly recall, the initial attempt to boot supernova with the internal server... 
+after many failed attempts with the local server, took a record breaking 
+55-65 seconds to boot... the internal server typically boots in 3-8 seconds
 */
 ```
 
 9:
 ```
 /*
-This boot log was also lost... though I clearly recall testing scsynth with the local server... exit code 1
+Data for this log was lost due to unexpected shutdown.. 
+I clearly recall testing scsynth, with the local server... exit code 1
 */
 ```
 
 10: 
 ```
 /*
-24 hours have passed since shutdown... 2 missing logs were added, networking is on, notepad is running this log alongside scide.
+24 hours have passed since shutdown... 
+2 missing logs were added, 
+networking is on,
+notepad is running this log alongside scide...
 
-Final boot using supernova & local server as default:
+Final boot using supernova... with the local, default, server:
 */
 compiling class library...
 	Found 853 primitives.
