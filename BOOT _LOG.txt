@@ -1,0 +1,236 @@
+Boot log for:
+
+- Windows 10 build 19043 (21H1), released May 2021 (latest build), 
+- SC 3.12.0 
+- scide 
+- supernova 
+- local server
+
+Actions performed after each log:
+- scide closes
+- task manager carefully checked & closed
+- OS restarts
+
+code for each boot:
+
+```
+(
+    (
+        (
+            Server 
+        )
+        .supernova
+    )
+    .default
+)
+.options_
+(
+    ServerOptions ( )
+
+    .maxSynthDefs_(2 ** 8)
+
+    .maxNodes_(2 ** 10)
+
+    .memSize_(2**18)
+)
+.boot
+```
+
+A successful boot is denoted as active CPU update values in the ide
+
+Task manager is carefully checked after each log... no processes were found
+
+The first log occurs just after a fresh updated build install
+
+
+1: ```
+Audio devices opened successfully
+Supernova ready
+Warning: cannot raise thread priority
+Warning: cannot set thread affinity of audio helper thread
+Warning: cannot set thread affinity of main audio thread
+```
+
+Successful boot
+
+2: ```
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Supernova booting
+Server: possible boot delay.
+On some Windows-based machines, Windows Defender sometimes delays server boot by one minute.
+You can add scsynth.exe and/or supernova.exe *processes* to Windows Defender exclusion list to avoid this delay. It's safe.
+Exception when reading synthdef: Cannot load synth system_env_1_control: Unit generator  not installed
+Exception when reading synthdef: Cannot load synth system_env_1_audio: Unit generator  not installed
+Requested audio devices:
+  In: (default)
+  Out: (default)
+
+Selecting default system input/output devices
+
+Opening audio devices:
+  In: MME : Stereo Mix (Realtek High Defini
+  Out: MME : Speakers (Realtek High Definiti
+  Sample rate: 44100.000
+  Latency (in/out): 0.026 / 0.183 sec
+Audio devices opened successfully
+Supernova ready
+Warning: cannot raise thread priority
+Warning: cannot set thread affinity of audio helper thread
+Warning: cannot set thread affinity of main audio thread
+Requested notification messages from server 'localhost'
+***THE PRECEDING LINE REPEATS ANOTHER 45 TIMES*** 
+localhost: no maxLogins info from server process.
+localhost: keeping clientID (0) as confirmed by server process.
+***THE PRECEDING LINE REPEATS ANOTHER 25-30 TIMES*** 
+Requested notification messages from server 'localhost'
+localhost - already registered with clientID nil.
+localhost - handling login request though already registered - 
+localhost - notify response did not contain already-registered clientID from server process.
+Assuming all is well.
+node id 1 already in use
+***THE PRECEDING LINE REPEATS ANOTHER 26 TIMES*** 
+Shared memory server interface initialized
+```
+Successful boot 
+
+For all of the following boot attempts:
+- networking is turned off via hardware killswitch
+
+
+3:```
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
+Failed boot attempt -> Task manager shows no servers -> no attempt made to kill servers
+
+4:
+```
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
+Failed boot attempt -> Task manager shows no server -> Server.killAll ran from scide
+
+Networking is still off, switching networking back to on before restart
+
+Networking will remain on for all following boot attempts... 
+
+5: identical to log #2... successful boot
+
+6: ```
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+server 'localhost' already booting
+-> localhost
+Server 'localhost' exited with exit code 1.
+SCDoc: Indexed 1360 documents in 28.13 seconds
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
+Server was inadvertently booted in process (boot file was evaluated twice ctrl+E)
+...failing immeditaley, then -> Server.killAll (ide) -> boot attempt ctrl + e ->
+fail -> Server.killAll (ide) -> fail 
+
+Networking is verified to be on... this log highlights a separate but still relevant issue
+
+Battery is almost dead... now carefully checking task manager once more, before performing
+complete shutdown.
+
+7:```
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
+Server.killAll (ide) ->
+```
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
+Server.killAll (code) ->
+```
+-> Server
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
+thisProcess.platform.killAll("supernova.exe") ->
+
+...cannot get supernova to boot with local, trying supernova with internal 
+
+8:```
+/*
+This boot log was lost due to unexpected shutdown. 
+
+...now I remember, the initial attempt to boot supernova with the internal 
+
+server after many failed attempts with the local server took a record breaking 55-65 
+
+seconds to boot... the internal server typicallys to boots in 3-8 seconds
+*/
+```
+
+9:```
+/*
+This boot log was also lost, I can clearly remember testing scsynth with the local server,
+
+with an exit code 1... 100% confident
+*/
+```
+
+10: ```
+/*
+Now returning to boot log after 24 hours... fully charged after unexpected shutdown.
+
+Boot log is written in notepad, not the ide... the former has been in the background for the last 10
+
+-15 minutes, with no other processes being run. Networking has been on the whole time...
+
+...now initiating final boot call using supernova, and the default (local) server
+
+*/
+compiling class library...
+	Found 853 primitives.
+	Compiling directory 'C:\Users\ssh\SuperCollider\SCClassLibrary'
+	Compiling directory 'C:\ProgramData\SuperCollider\Extensions'
+	Compiling directory 'C:\Users\ssh\AppData\Local\SuperCollider\Extensions'
+	numentries = 835291 / 12386250 = 0.067
+	5505 method selectors, 2250 classes
+	method table size 13404192 bytes, big table size 99090000
+	Number of Symbols 12296
+	Byte Code Size 369084
+	compiled 329 files in 9.91 seconds
+
+Info: 2 methods are currently overwritten by extensions. To see which, execute:
+MethodOverride.printAll
+
+compile done
+localhost : setting clientID to 0.
+internal : setting clientID to 0.
+Class tree inited in 0.06 seconds
+
+
+*** Welcome to SuperCollider 3.12.0. *** For help press Ctrl-D.
+SCDoc: Indexing help-files...
+SCDoc: Indexed 1360 documents in 29.76 seconds
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+// s.quit
+// s.boot
+'/quit' message sent to server 'localhost'.
+-> localhost
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+// Server.killAll
+// s.boot
+-> Server
+-> localhost
+Booting server 'localhost' on address 127.0.0.1:57110.
+Server 'localhost' exited with exit code 1.
+```
