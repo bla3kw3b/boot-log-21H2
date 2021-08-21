@@ -4,12 +4,11 @@ Boot log for:
 - SC 3.12.0 
 - scide 
 - supernova 
-- local server
+- local server 
 
-Actions performed after each log:
-- scide closes
-- task manager carefully checked & closed
-- OS restarts
+Task manager carefully checked before & after each log,
+
+Windows 10 build 21H2 running with clean restart each time.
 
 code for each boot:
 
@@ -97,8 +96,7 @@ Shared memory server interface initialized
 Successful boot 
 
 For all of the following boot attempts:
-- networking is turned off via hardware killswitch
-
+- Networking is turned off via hardware killswitch
 
 3: 
 ```
